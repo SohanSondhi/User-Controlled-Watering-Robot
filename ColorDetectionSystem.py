@@ -80,10 +80,12 @@ while(True):
     
 
 
-
+    #Color Detection for Blue
+    #Checks if the frame of the camera sees 25% or more blue
     if(cv2.countNonZero(blue_mask)>(0.25*pixels)):
         count+=1
         print(count)
+        #Counts to 10 seconds before watering
         if (count > 9):
             print ("Blue")
             count = 0
@@ -95,10 +97,13 @@ while(True):
             time.sleep(2)
 
             gpio.cleanup()
-            
-    elif cv2.countNonZero(red_mask)>(0.25*pixels):
+
+    #Color Detection for Red
+    #Checks if the frame of the camera sees 25% or more red
+    elif cv2.countNonZero(red_mask)>(0.25*pixels): 
         count+=1
         print(count)
+        #Counts to 10 seconds before watering
         if (count > 9):
             print ("Red")
             count = 0
@@ -110,10 +115,13 @@ while(True):
             time.sleep(5)
 
             gpio.cleanup()
-            
+
+    #Color Detection for Yellow
+    #Checks if the frame of the camera sees 25% or more Yellow
     elif cv2.countNonZero(yellow_mask)>(0.25*pixels):
         count+=1
         print(count)
+        #Counts to 10 seconds before watering
         if (count > 9):
             print ("Yellow")
             count = 0
